@@ -76,5 +76,65 @@ namespace SistemaBanco
             arquivo.Close();
         }
         #endregion
+        
+        //gera evento "sair"
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "depositar" em conta corrente
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "sacar" em conta corrente
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "extrato" em conta corrente
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "depositar" em conta poupança
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "sacar" em conta poupança
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        //gera evento "extrato" em conta poupança
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "depositar" em conta investimento
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "sacar" em conta investimento
+        private void Button_Click_8(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //gera evento "extrato" em conta investimento
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

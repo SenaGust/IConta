@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaBanco"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="375" Width="634.851">
+  <Grid>
+    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="237" Margin="193,107,0,0" VerticalAlignment="Top" Width="2" Opacity="1.2"/>
+    <Label Content="Conta corrente" HorizontalAlignment="Left" Margin="40,96,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontSize="15"/>
+    <Label Content="Mês: " HorizontalAlignment="Left" Margin="429,46,0,0" VerticalAlignment="Top" FontWeight="ExtraBold"/>
+    <Label Content="Label" HorizontalAlignment="Left" Margin="470,46,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="26" Margin="422,46,0,0" VerticalAlignment="Top" Width="88"/>
+    <Label Content="Conta poupança" HorizontalAlignment="Left" Margin="234,96,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontSize="15"/>
+    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="237" Margin="401,107,0,0" VerticalAlignment="Top" Width="2" Opacity="1.2"/>
+    <Label Content="Conta investimento" HorizontalAlignment="Left" Margin="443,96,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontSize="15"/>
+    <Button Content="Depositar" HorizontalAlignment="Left" Margin="52,181,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+    <Button Content="Sacar" HorizontalAlignment="Left" Margin="52,218,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+    <Button Content="Depositar" HorizontalAlignment="Left" Margin="272,181,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_4"/>
+    <Button Content="Sacar" HorizontalAlignment="Left" Margin="272,218,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
+    <Button Content="Depositar" HorizontalAlignment="Left" Margin="484,181,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_7"/>
+    <Button Content="Sacar" HorizontalAlignment="Left" Margin="484,218,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_8"/>
+    <Label Content="Valor:" HorizontalAlignment="Left" Margin="40,131,0,0" VerticalAlignment="Top"/>
+    <TextBox HorizontalAlignment="Left" Height="22" Margin="84,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
+    <Label Content="Valor:" HorizontalAlignment="Left" Margin="255,131,0,0" VerticalAlignment="Top"/>
+    <TextBox HorizontalAlignment="Left" Height="22" Margin="299,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
+    <TextBox HorizontalAlignment="Left" Height="22" Margin="515,135,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
+    <Label Content="Valor:" HorizontalAlignment="Left" Margin="471,131,0,0" VerticalAlignment="Top"/>
+    <Button Content="Extrato" HorizontalAlignment="Left" Margin="52,257,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+    <Button Content="Extrato" HorizontalAlignment="Left" Margin="272,257,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
+    <Button Content="Extrato" HorizontalAlignment="Left" Margin="484,257,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_9"/>
+    <Button Content="Sair" HorizontalAlignment="Left" Margin="533,46,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="Button_Click"/>
+  </Grid>
 </Window>
