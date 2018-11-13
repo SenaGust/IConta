@@ -12,17 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
-namespace IConta
+namespace SistemaBanco
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam
     /// </summary>
     public partial class MainWindow : Window
     {
+        static string arquivoLeitura = "contas.txt";
+
         public MainWindow()
         {
+            leituraArquivo();
             InitializeComponent();
         }
+
+        #region Controle
+        private void leituraArquivo()
+        {
+            if(!File.Exists(arquivoLeitura)) //caso o arquivo não exista, ele será criado
+            {
+                StreamWriter criarArquivo = new StreamWriter(arquivoLeitura);
+                criarArquivo.Close();
+            }
+
+            StreamReader arquivo = new StreamReader(arquivoLeitura);
+            
+            //fazer a leitura
+
+
+            arquivo.Close();
+        }
+        #endregion
     }
 }

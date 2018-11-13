@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IConta.Properties
+namespace SistemaBanco.Properties
 {
 
 
