@@ -10,11 +10,11 @@ namespace SistemaBanco
     {
         public static int contador = 0;
 
-        protected string NConta { get; set; }
-        protected string nome { get; set; }
-        protected bool validade { get; set; }
-        protected double saldo { get; set; }
-        protected string tipo { get; set; } //10, corrente //20, poupança //30, investimento
+        public string NConta { get; protected set; }
+        public string nome { get; protected set; }
+        public bool validade { get; protected set; }
+        public double saldo { get; protected set; }
+        public string tipo { get; protected set; } //10, corrente //20, poupança //30, investimento
 
         
         #region Métodos IConta
