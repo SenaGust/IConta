@@ -23,7 +23,7 @@ namespace SistemaBanco
 
         public override double Saldo()
         {
-            base.saldo *= aliquotaRendimento;
+            base.saldo += saldo * aliquotaRendimento ;
 
             return base.saldo;
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaBanco
 {
-    class Conta: IConta
+    class Conta : IConta
     {
-        protected static int contador = 0;
+        public static int contador = 0;
 
         protected string NConta { get; set; }
         protected string nome { get; set; }

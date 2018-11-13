@@ -70,9 +70,10 @@ namespace SistemaBanco
 
             for (int pos = 0; pos < Dados.Count; pos++)
             {
-                Console.WriteLine(Dados[pos].Saldo() + " ");
+                arquivo.WriteLine(Dados[pos].Saldo() + " ");
             }
 
+            arquivo.WriteLine("Numero de contas: " + Conta.contador);
             arquivo.Close();
         }
         #endregion
