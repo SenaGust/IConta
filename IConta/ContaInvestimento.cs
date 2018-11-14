@@ -8,7 +8,7 @@ namespace SistemaBanco
 {
     class ContaInvestimento: Conta
     {
-        const double aliquotaRendimento = 0.04;
+        const double aliquotaRendimento = 0.0055;
         const double aliquotaImposto = 0.1; //aplicado sob o rendimento
 
         public ContaInvestimento(string nome, string NConta, double saldo)

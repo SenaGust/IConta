@@ -8,7 +8,7 @@ namespace SistemaBanco
 {
     class ContaPoupanca: Conta
     {
-        const double aliquotaRendimento = 0.04;
+        const double aliquotaRendimento = 0.004;
 
         public ContaPoupanca(string nome, string NConta, double saldo)
         {
