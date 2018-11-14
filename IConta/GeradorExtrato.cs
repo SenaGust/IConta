@@ -17,6 +17,8 @@ namespace SistemaBanco
 
             extrato += "\nNúmero da Conta: " + a.NConta;
 
+            extrato += "\nNome: " + a.nome;
+
             extrato += "\nTipo da Conta: ";
             if (a.tipo == "10")
                 extrato += "Conta Corrente";
