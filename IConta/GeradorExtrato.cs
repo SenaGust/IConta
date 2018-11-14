@@ -10,9 +10,10 @@ namespace SistemaBanco
     {
         public string GeraExtrato(Conta a)
         {
+            DateTime agora = DateTime.Now;
             string extrato = "\tExtrato da Conta";
 
-
+            extrato += String.Format("\nData: {0: d/M/yyyy HH:mm:ss}", agora);
 
             extrato += "\nNúmero da Conta: " + a.NConta;
 

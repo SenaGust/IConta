@@ -91,175 +91,6 @@ namespace SistemaBanco
             arquivo.WriteLine(Conta.contaMes);
             arquivo.Close();
         }
-        #endregion
-
-        #region Botão Sair
-        //gera evento "sair"
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Gravar_Dados_Arquivos();
-            string programadores = "Integrantes: ";
-            programadores += "\n\tGustavo Sena";
-            programadores += "\n\tJoão Víctor Soares";
-            programadores += "\n\tLorena Aguilar";
-            programadores += "\n\tNathan Ribeiro";
-            MessageBox.Show(programadores, "Programadores", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
-        }
-        #endregion
-
-        #region Corrente
-        //gera evento "depositar" em conta corrente
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            string nConta = "1";
-            try
-            {
-                chamaDepositar(Convert.ToDouble(textBoxCorrente.Text), 0);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            textBoxCorrente.Clear();
-        }
-
-        //gera evento "sacar" em conta corrente
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            string nConta = "1";
-            try
-            {
-                chamaSaque(Convert.ToDouble(textBoxCorrente.Text), 0);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            textBoxCorrente.Clear();
-        }
-
-        //gera evento "extrato" em conta corrente
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            atualizaRendimentos();
-            chamaExtrato(Dados[0]);
-        }
-        #endregion
-
-        #region Poupança
-        //gera evento "depositar" em conta poupança
-        private void Button_Click_4(object sender, RoutedEventArgs e)
-        {
-            string nConta = "2";
-            try
-            {
-                chamaDepositar(Convert.ToDouble(textBoxPoupanca.Text), 1);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            textBoxPoupanca.Clear();
-        }
-
-        //gera evento "sacar" em conta poupança
-        private void Button_Click_5(object sender, RoutedEventArgs e)
-        {
-            string nConta = "2";
-            try
-            {
-                chamaSaque(Convert.ToDouble(textBoxPoupanca.Text), 1);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            textBoxPoupanca.Clear();
-        }
-        
-        //gera evento "extrato" em conta poupança
-        private void Button_Click_6(object sender, RoutedEventArgs e)
-        {
-            atualizaRendimentos();
-            chamaExtrato(Dados[1]);
-        }
-        #endregion
-
-        #region Investimento
-        //gera evento "depositar" em conta investimento
-        private void Button_Click_7(object sender, RoutedEventArgs e)
-        {
-            string nConta = "3";
-            try
-            {
-                chamaDepositar(Convert.ToDouble(textBoxInvestimento.Text), 2);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            textBoxInvestimento.Clear();
-        }
-
-        //gera evento "sacar" em conta investimento
-        private void Button_Click_8(object sender, RoutedEventArgs e)
-        {
-            string nConta = "3";
-            try
-            {
-                chamaSaque(Convert.ToDouble(textBoxInvestimento.Text), 2);
-            }
-            catch (FormatException)
-            {
-                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            textBoxInvestimento.Clear();
-        }
-
-        //gera evento "extrato" em conta investimento
-        private void Button_Click_9(object sender, RoutedEventArgs e)
-        {
-            atualizaRendimentos();
-            chamaExtrato(Dados[2]);
-        }
-        #endregion
-
-        #region Métodos complementares
-        private void chamaSaque(double valor, int posicao)
-        {
-            if (valor > 0 && valor <= Dados[posicao].Saldo)
-            {
-                Dados[posicao].Saque(valor);
-                MessageBox.Show("Saque feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("Não é possível retirar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            atualizaDadosJanela();
-        }
-        private void chamaDepositar(double valor, int posicao)
-        {
-            if (valor > 0)
-            {
-                Dados[posicao].Depositar(valor);
-                MessageBox.Show("Deposito feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("Não é possível depositar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            atualizaDadosJanela();
-        }
-        private void chamaExtrato(Conta conta)
-        {
-            GeradorExtrato extrato = new GeradorExtrato();
-            MessageBox.Show(extrato.GeraExtrato(conta), "Extrato", MessageBoxButton.OK);
-            Conta.contaMes++;
-            atualizaDadosJanela();
-        }
         private void atualizaDadosJanela()
         {
             labelContaMes.Content = Conta.contaMes;
@@ -280,21 +111,209 @@ namespace SistemaBanco
         }
         #endregion
 
+        #region Botão Sair
+        //gera evento "sair"
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Gravar_Dados_Arquivos();
+            string programadores = "Integrantes: ";
+            programadores += "\n\tGustavo Sena";
+            programadores += "\n\tJoão Víctor Soares";
+            programadores += "\n\tLorena Aguilar";
+            programadores += "\n\tNathan Ribeiro";
+            MessageBox.Show(programadores, "Programadores", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.Close();
+        }
+        #endregion
+
+        #region Corrente
         private void mostrarSaldoCorrente(object sender, RoutedEventArgs e)
         {
             mostraSaldos[0] = !mostraSaldos[0];
             atualizaDadosJanela();
         }
+        private void depositoCorrente(object sender, RoutedEventArgs e)
+        {
+            //gera evento "depositar" em conta corrente
+            try
+            {
+                double valor = Convert.ToDouble(textBoxCorrente.Text);
+                if (valor > 0)
+                {
+                    Dados[0].Depositar(valor);
+                    MessageBox.Show("Deposito feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível depositar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                atualizaDadosJanela();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            textBoxCorrente.Clear();
+        }
+        private void saqueCorrente(object sender, RoutedEventArgs e)
+        {
+            //gera evento "sacar" em conta corrente
+            try
+            {
+                double valor = Convert.ToDouble(textBoxCorrente.Text);
+                if (valor > 0 && valor <= Dados[0].Saldo)
+                {
+                    Dados[0].Saque(valor);
+                    MessageBox.Show("Saque feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível retirar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                atualizaDadosJanela();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            textBoxCorrente.Clear();
+        }
+        private void extratoCorrente(object sender, RoutedEventArgs e)
+        {
+            //gera evento "extrato" em conta corrente
+            atualizaRendimentos();
+            GeradorExtrato extrato = new GeradorExtrato();
+            MessageBox.Show(extrato.GeraExtrato(Dados[0]), "Extrato", MessageBoxButton.OK);
+            Conta.contaMes++;
+            atualizaDadosJanela();
+        }
+        #endregion
+
+        #region Poupança
         private void mostrarSaldoPoupanca(object sender, RoutedEventArgs e)
         {
             mostraSaldos[1] = !mostraSaldos[1];
             atualizaDadosJanela();
         }
+        private void depositoPoupanca(object sender, RoutedEventArgs e)
+        {
+            //gera evento "depositar" em conta poupança
+            try
+            {
+                double valor = Convert.ToDouble(textBoxPoupanca.Text);
+                if (valor > 0)
+                {
+                    Dados[1].Depositar(valor);
+                    MessageBox.Show("Deposito feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível depositar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                atualizaDadosJanela();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            textBoxPoupanca.Clear();
+        }
+        private void saquePoupanca(object sender, RoutedEventArgs e)
+        {
+            //gera evento "sacar" em conta poupança
+            try
+            {
+                double valor = Convert.ToDouble(textBoxPoupanca.Text);   
+                if (valor > 0 && valor <= Dados[1].Saldo)
+                {
+                    Dados[1].Saque(valor);
+                    MessageBox.Show("Saque feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível retirar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                atualizaDadosJanela();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            textBoxPoupanca.Clear();
+        }
+        private void extratoPoupanca(object sender, RoutedEventArgs e)
+        {
+            //gera evento "extrato" em conta poupança
+            atualizaRendimentos();
+            GeradorExtrato extrato = new GeradorExtrato();
+            MessageBox.Show(extrato.GeraExtrato(Dados[1]), "Extrato", MessageBoxButton.OK);
+            Conta.contaMes++;
+            atualizaDadosJanela();
+        }
+        #endregion
+
+        #region Investimento
         private void mostrarSaldoInvestimento(object sender, RoutedEventArgs e)
         {
             mostraSaldos[2] = !mostraSaldos[2];
             atualizaDadosJanela();
         }
-        
+        private void depositoInvestimento(object sender, RoutedEventArgs e)
+        {
+            //gera evento "depositar" em conta investimento
+            try
+            {
+                double valor = Convert.ToDouble(textBoxInvestimento.Text);
+                if (valor > 0)
+                {
+                    Dados[2].Depositar(valor);
+                    MessageBox.Show("Deposito feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível depositar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                atualizaDadosJanela();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            textBoxInvestimento.Clear();
+        }
+        private void saqueInvestimento(object sender, RoutedEventArgs e)
+        {
+            //gera evento "sacar" em conta investimento
+            try
+            {
+                double valor = Convert.ToDouble(textBoxInvestimento.Text);
+                if (valor > 0 && valor <= Dados[2].Saldo)
+                {
+                    Dados[2].Saque(valor);
+                    MessageBox.Show("Saque feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não é possível retirar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                atualizaDadosJanela();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Erro: O valor informado é inválido.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            textBoxInvestimento.Clear();
+        }
+        private void extratoInvestimento(object sender, RoutedEventArgs e)
+        {
+            //gera evento "extrato" em conta investimento
+            atualizaRendimentos();
+            GeradorExtrato extrato = new GeradorExtrato();
+            MessageBox.Show(extrato.GeraExtrato(Dados[2]), "Extrato", MessageBoxButton.OK);
+            Conta.contaMes++;
+            atualizaDadosJanela();
+        }
+        #endregion
+
     }
 }
