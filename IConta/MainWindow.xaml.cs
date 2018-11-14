@@ -41,7 +41,7 @@ namespace SistemaBanco
         private void atualizaRendimentos()
         {
             for (int pos = 0; pos < Dados.Count; pos++)
-                Dados[pos].SaldoA();
+                Dados[pos].calculaRendimento();
         }
         private void Ler_Dados_Arquivos()
         {

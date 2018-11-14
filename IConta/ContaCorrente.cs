@@ -19,7 +19,7 @@ namespace SistemaBanco
         }
 
 
-        public override double SaldoA()
+        public override double calculaRendimento()
         {
             return base.Saldo;
         }

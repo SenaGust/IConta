@@ -1,38 +1,45 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="IConta.Conta">
+  <Class Name="SistemaBanco.Conta">
     <Position X="5.5" Y="1.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAgAEAAAAEAAAAAAAAAAAAEAAAAAIAAAACAIA=</HashCode>
+      <HashCode>AQACBAAAAAEAEAAEAAAAAAAAAAAAEAAAAAIAAAACAIA=</HashCode>
       <FileName>Conta.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="IConta.ContaCorrente">
+  <Class Name="SistemaBanco.ContaCorrente">
     <Position X="3" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContaCorrente.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IConta.ContaInvestimento">
+  <Class Name="SistemaBanco.ContaInvestimento">
     <Position X="5.5" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAEAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContaInvestimento.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="IConta.ContaPoupanca">
+  <Class Name="SistemaBanco.ContaPoupanca">
     <Position X="8.75" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ContaPoupanca.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="IConta.IConta">
+  <Class Name="SistemaBanco.GeradorExtrato">
+    <Position X="2.25" Y="3.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeradorExtrato.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SistemaBanco.IConta">
     <Position X="2.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAEAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAA=</HashCode>
       <FileName>IConta.cs</FileName>
     </TypeIdentifier>
   </Interface>

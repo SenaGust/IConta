@@ -10,6 +10,6 @@ namespace SistemaBanco
     {
         void Depositar(double valor);
         void Saque(double valor);
-        double SaldoA();
+        double calculaRendimento();
     }
 }

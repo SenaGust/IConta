@@ -30,7 +30,7 @@ namespace SistemaBanco
         {
             Saldo += valor;
         }
-        public virtual double SaldoA()
+        public virtual double calculaRendimento()
         {
             return 0;
         }

@@ -20,7 +20,7 @@ namespace SistemaBanco
             Conta.contador++;
         }
 
-        public override double SaldoA()
+        public override double calculaRendimento()
         {
             base.Saldo += Saldo * aliquotaRendimento ;
 
