@@ -67,6 +67,7 @@
     <Compile Include="ContaCorrente.cs" />
     <Compile Include="ContaInvestimento.cs" />
     <Compile Include="ContaPoupanca.cs" />
+    <Compile Include="GeradorExtrato.cs" />
     <Compile Include="IConta.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

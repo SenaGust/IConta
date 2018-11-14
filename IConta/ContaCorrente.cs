@@ -10,8 +10,7 @@ namespace SistemaBanco
     {
         public ContaCorrente(string nome, string NConta, double saldo)
         {
-            base.validade = true;
-            base.saldo = saldo;
+            base.Saldo = saldo;
             base.nome = nome;
             base.NConta = NConta;
             base.tipo = "10";
@@ -20,9 +19,9 @@ namespace SistemaBanco
         }
 
 
-        public override double Saldo()
+        public override double SaldoA()
         {
-            return base.saldo;
+            return base.Saldo;
         }
     }
 }

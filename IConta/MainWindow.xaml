@@ -21,18 +21,30 @@
         <Button Content="Sacar" HorizontalAlignment="Left" Margin="272,249,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_5"/>
         <Button Content="Depositar" HorizontalAlignment="Left" Margin="484,223,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_7"/>
         <Button Content="Sacar" HorizontalAlignment="Left" Margin="484,249,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_8"/>
-        <Label Content="Valor:" HorizontalAlignment="Left" Margin="40,178,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxCorrente" HorizontalAlignment="Left" Height="22" Margin="84,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
-        <Label Content="Valor:" HorizontalAlignment="Left" Margin="255,178,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxPoupanca" HorizontalAlignment="Left" Height="22" Margin="299,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
-        <TextBox x:Name="textBoxInvestimento" HorizontalAlignment="Left" Height="22" Margin="515,182,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
-        <Label Content="Valor:" HorizontalAlignment="Left" Margin="471,178,0,0" VerticalAlignment="Top"/>
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="28,188,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxCorrente" HorizontalAlignment="Left" Height="22" Margin="72,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="243,188,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxPoupanca" HorizontalAlignment="Left" Height="22" Margin="287,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
+        <TextBox x:Name="textBoxInvestimento" HorizontalAlignment="Left" Height="22" Margin="503,192,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="459,188,0,0" VerticalAlignment="Top"/>
         <Button Content="Extrato" HorizontalAlignment="Left" Margin="52,274,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
         <Button Content="Extrato" HorizontalAlignment="Left" Margin="272,274,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_6"/>
         <Button Content="Extrato" HorizontalAlignment="Left" Margin="484,274,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_9"/>
         <Button Content="Sair" HorizontalAlignment="Left" Margin="533,46,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="Button_Click"/>
-        <Label x:Name="labelNumContaPoupanca" Content="Label" HorizontalAlignment="Left" Margin="255,151,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelNumContaCorrente" Content="Label" HorizontalAlignment="Left" Margin="40,151,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelNumContaInvestimento" Content="Label" HorizontalAlignment="Left" Margin="472,152,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNumContaPoupancaSaldo" Content="Saldo: " HorizontalAlignment="Left" Margin="243,162,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNumContaCorrenteSaldo" Content="Saldo: " HorizontalAlignment="Left" Margin="28,161,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNumContaInvestimentoSaldo" Content="Saldo: " HorizontalAlignment="Left" Margin="459,161,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNumContaPoupancaNome" Content="Nome: " HorizontalAlignment="Left" Margin="243,135,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNumContaCorrenteNome" Content="Nome: " HorizontalAlignment="Left" Margin="28,135,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelNumContaInvestimentoNome" Content="Nome: " HorizontalAlignment="Left" Margin="461,135,0,0" VerticalAlignment="Top"/>
+        <Label HorizontalAlignment="Left" Margin="137,162,0,0" VerticalAlignment="Top" Height="25" Width="25" Padding="0" MouseDoubleClick="A">
+            <Image Source="D:\Puc Minas\Repositorio\IConta\IConta\bin\Debug\olho.png"/>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="573,162,0,0" VerticalAlignment="Top" Height="25" Width="25" Padding="0" MouseDoubleClick="C">
+            <Image Source="D:\Puc Minas\Repositorio\IConta\IConta\bin\Debug\olho.png"/>
+        </Label>
+        <Label HorizontalAlignment="Left" Margin="352,163,0,0" VerticalAlignment="Top" Height="25" Width="25" Padding="0" MouseDoubleClick="B">
+            <Image Source="D:\Puc Minas\Repositorio\IConta\IConta\bin\Debug\olho.png"/>
+        </Label>
     </Grid>
 </Window>

@@ -13,8 +13,7 @@ namespace SistemaBanco
 
         public ContaInvestimento(string nome, string NConta, double saldo)
         {
-            base.validade = true;
-            base.saldo = saldo;
+            base.Saldo = saldo;
             base.nome = nome;
             base.NConta = NConta;
             base.tipo = "30";
@@ -22,12 +21,12 @@ namespace SistemaBanco
             Conta.contador++;
         }
 
-        public override double Saldo()
+        public override double SaldoA()
         {
-            double imposto = base.saldo * aliquotaRendimento * aliquotaImposto;
-            base.saldo += base.saldo * aliquotaRendimento - imposto;
+            double imposto = base.Saldo * aliquotaRendimento * aliquotaImposto;
+            base.Saldo += base.Saldo * aliquotaRendimento - imposto;
 
-            return base.saldo;
+            return base.Saldo;
         }
     }
 }

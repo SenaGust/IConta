@@ -21,32 +21,37 @@ namespace SistemaBanco
     /// </summary>
     public partial class MainWindow : Window
     {
-        static int contadorMes = 1;
-        static string arquivoLeitura = "contas.txt";
+        static string arquivoConta = "contas.txt";
         List<Conta> Dados = new List<Conta>();
+        bool[] mostraSaldos = { false, false, false };
 
         public MainWindow()
         {
             Ler_Dados_Arquivos();
             InitializeComponent();
-            atualizarDados();
+            atualizaDadosJanela();
+
+            //adiciona nomes
+            labelNumContaCorrenteNome.Content += Dados[0].nome;
+            labelNumContaPoupancaNome.Content += Dados[1].nome;
+            labelNumContaInvestimentoNome.Content += Dados[2].nome;
         }
 
         #region Controle
-        private void atualizaSaldo()
+        private void atualizaRendimentos()
         {
             for (int pos = 0; pos < Dados.Count; pos++)
-                Dados[pos].Saldo();
+                Dados[pos].SaldoA();
         }
         private void Ler_Dados_Arquivos()
         {
-            if(!File.Exists(arquivoLeitura)) //caso o arquivo não exista, ele será criado
+            if(!File.Exists(arquivoConta)) //caso o arquivo não exista, ele será criado
             {
-                StreamWriter criarArquivo = new StreamWriter(arquivoLeitura);
+                StreamWriter criarArquivo = new StreamWriter(arquivoConta);
                 criarArquivo.Close();
             }
 
-            StreamReader arquivo = new StreamReader(arquivoLeitura);
+            StreamReader arquivo = new StreamReader(arquivoConta);
             int dadosPorLinha = 4;
 
             //fazer a leitura
@@ -66,20 +71,24 @@ namespace SistemaBanco
 
                     Dados.Add(p);
                 }
+                if(data.Length == 1)
+                {
+                    Conta.contaMes = Convert.ToInt32(data[0]);
+                }
             }
 
             arquivo.Close();
         }
         private void Gravar_Dados_Arquivos()
         {
-            StreamWriter arquivo = new StreamWriter("teste.txt");
+            StreamWriter arquivo = new StreamWriter(arquivoConta);
 
             for (int pos = 0; pos < Dados.Count; pos++)
             {
-                arquivo.WriteLine(Dados[pos].Saldo() + " ");
+                arquivo.WriteLine("{0};{1};{2};{3}", Dados[pos].nome, Dados[pos].NConta, Dados[pos].tipo, Dados[pos].Saldo);
             }
 
-            arquivo.WriteLine("Numero de contas: " + Conta.contador);
+            arquivo.WriteLine(Conta.contaMes);
             arquivo.Close();
         }
         #endregion
@@ -89,7 +98,13 @@ namespace SistemaBanco
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Gravar_Dados_Arquivos();
-            MessageBox.Show("Integrantes: Gustavo Sena, João Vítor Soares, Lorena Aguilar, Nathan Ribeiro", "Programadores", MessageBoxButton.OK, MessageBoxImage.Information);
+            string programadores = "Integrantes: ";
+            programadores += "\n\tGustavo Sena";
+            programadores += "\n\tJoão Víctor Soares";
+            programadores += "\n\tLorena Aguilar";
+            programadores += "\n\tNathan Ribeiro";
+            MessageBox.Show(programadores, "Programadores", MessageBoxButton.OK, MessageBoxImage.Information);
+            this.Close();
         }
         #endregion
 
@@ -100,7 +115,7 @@ namespace SistemaBanco
             string nConta = "1";
             try
             {
-                depositar(Convert.ToDouble(textBoxCorrente.Text), nConta);
+                chamaDepositar(Convert.ToDouble(textBoxCorrente.Text), 0);
             }
             catch (FormatException)
             {
@@ -116,7 +131,7 @@ namespace SistemaBanco
             string nConta = "1";
             try
             {
-                saque(Convert.ToDouble(textBoxCorrente.Text), nConta);
+                chamaSaque(Convert.ToDouble(textBoxCorrente.Text), 0);
             }
             catch (FormatException)
             {
@@ -128,10 +143,8 @@ namespace SistemaBanco
         //gera evento "extrato" em conta corrente
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            atualizaSaldo();
-            contadorMes++;
-            MessageBox.Show("Seu saldo é: " + Dados[0].saldo);
-            atualizarDados();
+            atualizaRendimentos();
+            chamaExtrato(Dados[0]);
         }
         #endregion
 
@@ -142,7 +155,7 @@ namespace SistemaBanco
             string nConta = "2";
             try
             {
-                depositar(Convert.ToDouble(textBoxPoupanca.Text), nConta);
+                chamaDepositar(Convert.ToDouble(textBoxPoupanca.Text), 1);
             }
             catch (FormatException)
             {
@@ -157,7 +170,7 @@ namespace SistemaBanco
             string nConta = "2";
             try
             {
-                depositar(Convert.ToDouble(textBoxPoupanca.Text), nConta);
+                chamaSaque(Convert.ToDouble(textBoxPoupanca.Text), 1);
             }
             catch (FormatException)
             {
@@ -169,10 +182,8 @@ namespace SistemaBanco
         //gera evento "extrato" em conta poupança
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            atualizaSaldo();
-            contadorMes++;
-            MessageBox.Show("Seu saldo é: " + Dados[1].saldo);
-            atualizarDados();
+            atualizaRendimentos();
+            chamaExtrato(Dados[1]);
         }
         #endregion
 
@@ -183,7 +194,7 @@ namespace SistemaBanco
             string nConta = "3";
             try
             {
-                depositar(Convert.ToDouble(textBoxInvestimento.Text), nConta);
+                chamaDepositar(Convert.ToDouble(textBoxInvestimento.Text), 2);
             }
             catch (FormatException)
             {
@@ -198,7 +209,7 @@ namespace SistemaBanco
             string nConta = "3";
             try
             {
-                depositar(Convert.ToDouble(textBoxInvestimento.Text), nConta);
+                chamaSaque(Convert.ToDouble(textBoxInvestimento.Text), 2);
             }
             catch (FormatException)
             {
@@ -210,66 +221,79 @@ namespace SistemaBanco
         //gera evento "extrato" em conta investimento
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {
-            atualizaSaldo();
-            contadorMes++;
-            MessageBox.Show("Seu saldo é: " + Dados[1].saldo);
-            atualizarDados();
+            atualizaRendimentos();
+            chamaExtrato(Dados[2]);
         }
         #endregion
 
         #region Métodos complementares
-        private void saque(double valor, string nConta)
+        private void chamaSaque(double valor, int posicao)
         {
-            int ondeRetirar = procuraNumeroConta(nConta);
-            if (ondeRetirar == -1)
+            if (valor > 0 && valor <= Dados[posicao].Saldo)
             {
-                MessageBox.Show("Não foi possível encontrar a conta informada.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (valor > 0 && valor <= Dados[ondeRetirar].saldo)
-            {
-                Dados[ondeRetirar].Saque(valor);
+                Dados[posicao].Saque(valor);
                 MessageBox.Show("Saque feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
                 MessageBox.Show("Não é possível retirar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            atualizaDadosJanela();
         }
-        private void depositar(double valor, string NConta)
+        private void chamaDepositar(double valor, int posicao)
         {
-            int ondeDepositar = procuraNumeroConta(NConta);
-            if (ondeDepositar == -1)
+            if (valor > 0)
             {
-                MessageBox.Show("Não foi possível encontrar a conta informada.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-            else if (valor > 0)
-            {
-                Dados[ondeDepositar].Depositar(valor);
+                Dados[posicao].Depositar(valor);
                 MessageBox.Show("Deposito feito com sucesso.", "Sucesso", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
                 MessageBox.Show("Não é possível depositar esse valor.", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            atualizaDadosJanela();
         }
-        private int procuraNumeroConta(string Nconta)
+        private void chamaExtrato(Conta conta)
         {
-            for (int pos = 0; pos < Dados.Count; pos++)
-            {
-                if (Dados[pos].NConta == Nconta)
-                {
-                    return pos;
-                }
-            }
-            return -1;
+            GeradorExtrato extrato = new GeradorExtrato();
+            MessageBox.Show(extrato.GeraExtrato(conta), "Extrato", MessageBoxButton.OK);
+            Conta.contaMes++;
+            atualizaDadosJanela();
         }
-        private void atualizarDados()
+        private void atualizaDadosJanela()
         {
-            labelContaMes.Content = contadorMes + " ";
-            labelNumContaCorrente.Content = Dados[0].nome;
-            labelNumContaPoupanca.Content = Dados[1].nome;
-            labelNumContaInvestimento.Content = Dados[2].nome;
+            labelContaMes.Content = Conta.contaMes;
+            if (mostraSaldos[0])
+                labelNumContaCorrenteSaldo.Content = "Saldo: R$ " + Dados[0].Saldo;
+            else
+                labelNumContaCorrenteSaldo.Content = "Saldo: R$ ****";
+
+            if (mostraSaldos[1])
+                labelNumContaPoupancaSaldo.Content = "Saldo: R$ " + Dados[1].Saldo;
+            else
+                labelNumContaPoupancaSaldo.Content = "Saldo: R$ ****";
+
+            if (mostraSaldos[2])
+                labelNumContaInvestimentoSaldo.Content = "Saldo: R$ " + Dados[2].Saldo;
+            else
+                labelNumContaInvestimentoSaldo.Content = "Saldo: R$ ****";
         }
         #endregion
+
+        private void A(object sender, RoutedEventArgs e)
+        {
+            mostraSaldos[0] = !mostraSaldos[0];
+            atualizaDadosJanela();
+        }
+        private void B(object sender, RoutedEventArgs e)
+        {
+            mostraSaldos[1] = !mostraSaldos[1];
+            atualizaDadosJanela();
+        }
+        private void C(object sender, RoutedEventArgs e)
+        {
+            mostraSaldos[2] = !mostraSaldos[2];
+            atualizaDadosJanela();
+        }
     }
 }

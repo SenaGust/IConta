@@ -12,8 +12,7 @@ namespace SistemaBanco
 
         public ContaPoupanca(string nome, string NConta, double saldo)
         {
-            base.validade = true;
-            base.saldo = saldo;
+            base.Saldo = saldo;
             base.nome = nome;
             base.NConta = NConta;
             base.tipo = "20";
@@ -21,11 +20,11 @@ namespace SistemaBanco
             Conta.contador++;
         }
 
-        public override double Saldo()
+        public override double SaldoA()
         {
-            base.saldo += saldo * aliquotaRendimento ;
+            base.Saldo += Saldo * aliquotaRendimento ;
 
-            return base.saldo;
+            return base.Saldo;
         }
     }
 }
