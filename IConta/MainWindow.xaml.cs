@@ -280,20 +280,21 @@ namespace SistemaBanco
         }
         #endregion
 
-        private void A(object sender, RoutedEventArgs e)
+        private void mostrarSaldoCorrente(object sender, RoutedEventArgs e)
         {
             mostraSaldos[0] = !mostraSaldos[0];
             atualizaDadosJanela();
         }
-        private void B(object sender, RoutedEventArgs e)
+        private void mostrarSaldoPoupanca(object sender, RoutedEventArgs e)
         {
             mostraSaldos[1] = !mostraSaldos[1];
             atualizaDadosJanela();
         }
-        private void C(object sender, RoutedEventArgs e)
+        private void mostrarSaldoInvestimento(object sender, RoutedEventArgs e)
         {
             mostraSaldos[2] = !mostraSaldos[2];
             atualizaDadosJanela();
         }
+        
     }
 }

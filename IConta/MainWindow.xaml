@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SistemaBanco"
         mc:Ignorable="d"
-        Title="MainWindow" Height="375" Width="634.851">
+        Title="Sistema Contas" Height="375" Width="634.851">
     <Grid>
+        
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="26" Margin="422,46,0,0" VerticalAlignment="Top" Width="88"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="237" Margin="193,107,0,0" VerticalAlignment="Top" Width="2" Opacity="1.2"/>
         <Label Content="Conta Corrente" HorizontalAlignment="Left" Margin="40,96,0,0" VerticalAlignment="Top" FontWeight="ExtraBold" FontSize="15"/>
@@ -37,14 +38,8 @@
         <Label x:Name="labelNumContaPoupancaNome" Content="Nome: " HorizontalAlignment="Left" Margin="243,135,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelNumContaCorrenteNome" Content="Nome: " HorizontalAlignment="Left" Margin="28,135,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelNumContaInvestimentoNome" Content="Nome: " HorizontalAlignment="Left" Margin="461,135,0,0" VerticalAlignment="Top"/>
-        <Label HorizontalAlignment="Left" Margin="137,162,0,0" VerticalAlignment="Top" Height="25" Width="25" Padding="0" MouseDoubleClick="A">
-            <Image Source="D:\Puc Minas\Repositorio\IConta\IConta\bin\Debug\olho.png"/>
-        </Label>
-        <Label HorizontalAlignment="Left" Margin="573,162,0,0" VerticalAlignment="Top" Height="25" Width="25" Padding="0" MouseDoubleClick="C">
-            <Image Source="D:\Puc Minas\Repositorio\IConta\IConta\bin\Debug\olho.png"/>
-        </Label>
-        <Label HorizontalAlignment="Left" Margin="352,163,0,0" VerticalAlignment="Top" Height="25" Width="25" Padding="0" MouseDoubleClick="B">
-            <Image Source="D:\Puc Minas\Repositorio\IConta\IConta\bin\Debug\olho.png"/>
-        </Label>
+        <Button Content="Mostrar" HorizontalAlignment="Left" Margin="140,167,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,-0.3" Click="mostrarSaldoCorrente" BorderThickness="0" Background="White"/>
+        <Button Content="Mostrar" HorizontalAlignment="Left" Margin="569,168,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,-0.3" Click="mostrarSaldoInvestimento" BorderThickness="0" Background="White"/>
+        <Button Content="Mostrar" HorizontalAlignment="Left" Margin="348,168,0,0" VerticalAlignment="Top" Width="48" RenderTransformOrigin="0.5,-0.3" Click="mostrarSaldoPoupanca" BorderThickness="0" Background="White"/>
     </Grid>
 </Window>
